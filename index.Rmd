@@ -1,0 +1,48 @@
+---
+title: "Developing Data Products - Week 3 - Peer Assessment"
+author: "b m g"
+date: "6/17/2017"
+output: ioslides_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## Objectives
+
+* Create a webpage presentation using 
+    + Menu, *File / New File/ R Markdown / Presentation (ioslides)*
+    + Not Menu, *File / New File / R Presentation*
+* Include a Plotly plot on one of the slides
+* Host the Presentation on a webpage 
+    + Here we will use (GitHub Pages) 
+    + Be sure to include the creation date
+* The data set Diamonds is used
+
+## Loading Libraries and Data
+
+* Library *plotly* is loaded
+* data set *diamonds* is loaded
+
+```{r, echo = FALSE, message=FALSE}
+library(plotly)
+data("diamonds")
+```
+
+## Plotly plot of selection of Diamond data
+- *Carat* is independent variable (X), *price* dependent (Y), point size depends on *carat* variable and point color depends on color with cut quality used as third (Z) vatiable.
+
+```{r, echo = FALSE, message=FALSE}
+set.seed(150)
+d <- diamonds[sample(nrow(diamonds), 500), ]
+plot_ly(d, x = ~carat, y = ~price, z = ~cut, type = 'scatter3d', color = ~color,
+        size = ~carat, text = ~paste("Clarity: ", clarity), mode='markers')
+```
+
+## References
+
+- https://plot.ly/r/reference/#scatter
+- Diamond data , http://ggplot2.tidyverse.org/reference/diamonds.html
+- https://www.rstudio.com/wp-content/uploads/2016/03/rmarkdown-cheatsheet-2.0.pdf
+- For more info on R Markdown presentation see <http://rmarkdown.rstudio.com>.
