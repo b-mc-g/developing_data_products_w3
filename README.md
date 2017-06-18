@@ -5,4 +5,4 @@ When viewing the index.html file the WebGL component causes Firefox (54.0) to us
 
 This can delay loading and also can cause unresponsiveness of other applications.
 
-Please use Ghrome when possible.
+Please use Chrome when possible.
